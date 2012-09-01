@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2012 Markus KARG This file is part of Range Class. Range 
+	Class is free software: you can redistribute it and/or modify it under the 
+	terms of the GNU Lesser General Public License as published by the Free Software 
+	Foundation, either version 3 of the License, or (at your option) any later 
+	version. Range Class is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+	or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License 
+	for more details. You should have received a copy of the GNU Lesser General 
+	Public License along with Range Class. If not, see <http://www.gnu.org/licenses 
+	/>. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	<groupId>eu.headcrashing.treasure-chest</groupId>
+	<artifactId>RangeClass</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0</version>
+	<name>Range Class</name>
+	<description>A class for handling value ranges.</description>
+	<inceptionYear>2010</inceptionYear>
+	<url>https://github.com/headcrashing/treasure-chest/RangeClass</url>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
+			<comments>An OSI approved licence allowing open source and commercial use.</comments>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>Head Crashing Informatics</name>
+		<url>http://www.headcrashing.eu</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>mkarg</id>
+			<name>Markus KARG</name>
+			<email>markus@headcrashing.eu</email>
+			<url>http://www.headcrashing.eu</url>
+			<organization>Head Crashing Informatics</organization>
+			<organizationUrl>http://www.headcrashing.eu</organizationUrl>
+			<roles>
+				<role>owner</role>
+				<role>developer</role>
+			</roles>
+			<timezone>1</timezone>
+			<properties>
+				<picUrl>http://headcrashing.eu/markus.jpg</picUrl>
+			</properties>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Martin FOWLER</name>
+			<email>fowler@acm.org</email>
+			<url>http://www.martinfowler.com</url>
+			<organization>ThoughtWorks</organization>
+			<organizationUrl>http://www.thoughtworks.com</organizationUrl>
+			<roles>
+				<role>Inspiration for Range Class: http://martinfowler.com/ap2/range.html</role>
+			</roles>
+			<properties>
+				<picUrl>http://www.martinfowler.com/mf-ade-home.jpg</picUrl>
+			</properties>
+		</contributor>
+	</contributors>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4,)</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<scm>
+		<url>https://github.com/headcrashing/treasure-chest</url>
+		<connection>scm:git:https://github.com/headcrashing/treasure-chest.git</connection>
+		<developerConnection>scm:git:https://github.com/headcrashing/treasure-chest.git</developerConnection>
+	</scm>
+</project>
