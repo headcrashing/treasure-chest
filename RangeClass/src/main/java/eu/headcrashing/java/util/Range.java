@@ -33,7 +33,7 @@ import static java.lang.Integer.MIN_VALUE;
  * @param T
  *            The type of values covered by this range, e. g. {@link Integer}.
  * @author Markus KARG (markus@headcrashing.eu)
- * @version ${project.version}
+ * @version 1.2.2
  */
 public final class Range<T extends Comparable<T>> {
 

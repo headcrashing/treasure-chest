@@ -69,14 +69,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<filtering>true</filtering>
-				<targetPath>../filtered-sources/java</targetPath>
-			</resource>
-		</resources>
-		<sourceDirectory>target/filtered-sources/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
