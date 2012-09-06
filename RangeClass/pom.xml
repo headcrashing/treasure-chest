@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2010-2012 Markus KARG This file is part of Range Class. Range 
-	Class is free software: you can redistribute it and/or modify it under the 
-	terms of the GNU Lesser General Public License as published by the Free Software 
-	Foundation, either version 3 of the License, or (at your option) any later 
-	version. Range Class is distributed in the hope that it will be useful, but 
-	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
-	or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License 
-	for more details. You should have received a copy of the GNU Lesser General 
-	Public License along with Range Class. If not, see <http://www.gnu.org/licenses 
-	/>. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -20,7 +10,7 @@
 	<groupId>eu.headcrashing.treasure-chest</groupId>
 	<artifactId>RangeClass</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.2.2</version>
 	<name>Range Class</name>
 	<description>A class for handling value ranges.</description>
 	<inceptionYear>2010</inceptionYear>
@@ -79,9 +69,37 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>true</filtering>
+				<targetPath>../filtered-sources/java</targetPath>
+			</resource>
+		</resources>
+		<sourceDirectory>target/filtered-sources/java</sourceDirectory>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.3</version>
+				<configuration>
+					<verbose>false</verbose>
+					<addSvnKeyWords>true</addSvnKeyWords>
+				</configuration>
+				<executions>
+					<execution>
+						<id>first</id>
+						<goals>
+							<goal>update-file-header</goal>
+						</goals>
+						<phase>process-sources</phase>
+						<configuration>
+							<licenseName>lgpl_v3</licenseName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
@@ -90,6 +108,36 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>license-maven-plugin</artifactId>
+										<versionRange>[1.3,)</versionRange>
+										<goals>
+											<goal>update-file-header</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	<scm>
 		<url>https://github.com/headcrashing/treasure-chest/tree/master/RangeClass</url>

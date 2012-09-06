@@ -1,21 +1,28 @@
+package eu.headcrashing.java.util;
+
 /*
- * Copyright 2010 Markus KARG
- *
- * This file is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This file is distributed in the hope that it will be useful,
+ * #%L
+ * Range Class
+ * $Id:$
+ * $HeadURL:$
+ * %%
+ * Copyright (C) 2010 - 2012 Head Crashing Informatics
+ * %%
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as 
+ * published by the Free Software Foundation, either version 3 of the 
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * For a copy of the GNU Lesser General Public License
- * see <http://www.gnu.org/licenses/>.
+ * GNU General Lesser Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Lesser Public 
+ * License along with this program.  If not, see
+ * <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ * #L%
  */
-
-package eu.headcrashing.java.util;
 
 import static java.lang.Integer.MAX_VALUE;
 import static java.lang.Integer.MIN_VALUE;
@@ -165,15 +172,11 @@ public final class RangeTest {
 	}
 
 	/**
-	 * Regression test for {@code Range<String>.compare(String)} false
-	 * positives.
+	 * Regression test for {@code Range<String>.compare(String)} false positives.
 	 * 
-	 * Problem: {@code Range<String>("c", "f")} pretends to contain both,
-	 * {@code "a"} and {@code "g"}.
+	 * Problem: {@code Range<String>("c", "f")} pretends to contain both, {@code "a"} and {@code "g"}.
 	 * 
-	 * Cause: Incorrect assumption of {@code Comparable<T>.compareTo(T)} result
-	 * values being exactly {@code -1} or {@code 1}, but actually can be
-	 * {@code -N} and {@code N}.
+	 * Cause: Incorrect assumption of {@code Comparable<T>.compareTo(T)} result values being exactly {@code -1} or {@code 1}, but actually can be {@code -N} and {@code N}.
 	 */
 	@Test
 	public final void compareStringRegression() {
@@ -182,14 +185,11 @@ public final class RangeTest {
 	}
 
 	/**
-	 * Regression test for {@code Range<String>(String, String)} false negatives
-	 * in interchanged limits test.
+	 * Regression test for {@code Range<String>(String, String)} false negatives in interchanged limits test.
 	 * 
 	 * Problem: {@code Range<String>("c", "a")} pretends to be a valid range.
 	 * 
-	 * Cause: Incorrect assumption of {@code Comparable<T>.compareTo(T)} result
-	 * values being exactly {@code -1} or {@code 1}, but actually can be
-	 * {@code -N} and {@code N}.
+	 * Cause: Incorrect assumption of {@code Comparable<T>.compareTo(T)} result values being exactly {@code -1} or {@code 1}, but actually can be {@code -N} and {@code N}.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public final void interchangedLimitsStringRegression() {
