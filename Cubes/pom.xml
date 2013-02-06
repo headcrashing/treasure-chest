@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	<groupId>eu.headcrashing.treasure-chest</groupId>
+	<artifactId>Cubes</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0</version>
+	<name>Cubes</name>
+	<description>A framework for storing information addressed by three dimensions.</description>
+	<inceptionYear>2013</inceptionYear>
+	<url>https://github.com/headcrashing/treasure-chest/Cubes</url>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
+			<comments>An OSI approved licence allowing open source and commercial use.</comments>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>Head Crashing Informatics</name>
+		<url>http://www.headcrashing.eu</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>mkarg</id>
+			<name>Markus KARG</name>
+			<email>markus@headcrashing.eu</email>
+			<url>http://www.headcrashing.eu</url>
+			<organization>Head Crashing Informatics</organization>
+			<organizationUrl>http://www.headcrashing.eu</organizationUrl>
+			<roles>
+				<role>owner</role>
+				<role>developer</role>
+			</roles>
+			<timezone>1</timezone>
+			<properties>
+				<picUrl>http://headcrashing.eu/markus.jpg</picUrl>
+			</properties>
+		</developer>
+	</developers>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.11,5)</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.3</version>
+				<configuration>
+					<verbose>false</verbose>
+					<addSvnKeyWords>true</addSvnKeyWords>
+				</configuration>
+				<executions>
+					<execution>
+						<id>first</id>
+						<goals>
+							<goal>update-file-header</goal>
+						</goals>
+						<phase>process-sources</phase>
+						<configuration>
+							<licenseName>lgpl_v3</licenseName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>license-maven-plugin</artifactId>
+										<versionRange>[1.3,)</versionRange>
+										<goals>
+											<goal>update-file-header</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<scm>
+		<url>scm:git:https://github.com/headcrashing/treasure-chest.git</url>
+		<connection>scm:git:https://github.com/headcrashing/treasure-chest.git</connection>
+		<developerConnection>scm:git:https://github.com/headcrashing/treasure-chest.git</developerConnection>
+	</scm>
+</project>
