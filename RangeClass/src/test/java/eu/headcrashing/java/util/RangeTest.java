@@ -55,7 +55,7 @@ public final class RangeTest {
 		assertThat("(null, null).contains(2)", new Range<Integer>(null, null).contains(2), is(true));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NullPointerException.class)
 	public final void containsNull() {
 		new Range<Integer>(1, 3).contains((Integer) null);
 	}

@@ -24,6 +24,8 @@ package eu.headcrashing.java.util;
  * #L%
  */
 
+import java.util.Objects;
+
 /**
  * A range is defined by a begin and an end. It allows checking whether a value is within the range or outside. A range can be open at one or both ends, i. e. the range is assumed to be endless in that direction.
  * 
@@ -55,12 +57,12 @@ public final record Range<T extends Comparable<T>>(T lowerBound, T upperBound) {
 	 * @param object
 	 *            The object to be checked. Must not be {@code null}.
 	 * @return {@code false} if {@code object} is lower than the lower bound or greater than the upper bound; otherwise {@code true}.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if {@code object} is {@code null}.
+	 * @since 2.0.0
 	 */
-	public final boolean contains(final T object) throws IllegalArgumentException {
-		if (object == null)
-			throw new IllegalArgumentException("object is null");
+	public final boolean contains(final T object) {
+		Objects.requireNonNull(object, "object is null");
 
 		if (this.lowerBound != null && object.compareTo(this.lowerBound) < 0)
 			return false;
@@ -77,13 +79,12 @@ public final record Range<T extends Comparable<T>>(T lowerBound, T upperBound) {
 	 * @param range
 	 *            The range to be checked. Must not be {@code null}.
 	 * @return {@code false} if {@code range} has a lower bound lower than the lower bound of this or an upper bound greater than the upper bound of this (i. e. {@code other} overlaps or is completely outside); otherwise {@code true}.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if {@code other} is {@code null}.
-	 * @since 1.1.0
+	 * @since 2.0.0
 	 */
-	public final boolean contains(final Range<T> range) throws IllegalArgumentException {
-		if (range == null)
-			throw new IllegalArgumentException("range is null");
+	public final boolean contains(final Range<T> range) {
+		Objects.requireNonNull(range, "object is null");
 
 		if (this.lowerBound != null && (range.lowerBound == null || range.lowerBound.compareTo(this.lowerBound) < 0))
 			return false;
@@ -100,13 +101,12 @@ public final record Range<T extends Comparable<T>>(T lowerBound, T upperBound) {
 	 * @param range
 	 *            The {@code range} to be checked. Must not be {@code null}.
 	 * @return {@code false} if {@code range} has an upper bound lower than the lower bound of this or a lower bound greater than the upper bound of this; otherwise {@code true}.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if {@code range} is {@code null}.
-	 * @since 1.2.0
+	 * @since 2.0.0
 	 */
-	public final boolean overlaps(final Range<T> range) throws IllegalArgumentException {
-		if (range == null)
-			throw new IllegalArgumentException("range is null");
+	public final boolean overlaps(final Range<T> range) {
+		Objects.requireNonNull(range, "object is null");
 
 		if (this.upperBound != null && range.lowerBound != null && this.upperBound.compareTo(range.lowerBound) < 0)
 			return false;
