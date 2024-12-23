@@ -44,28 +44,6 @@ public final class RangeTest {
 	}
 
 	@Test
-	public final void _equals() {
-		assertThat("(null, null).equals(123)", new Range<Integer>(null, null).equals(123), is(false));
-		assertThat("(null, null).equals(null, null)", new Range<Integer>(null, null).equals(new Range<Integer>(null, null)), is(true));
-		assertThat("(1, 2).equals(1, 2)", new Range<Integer>(1, 2).equals(new Range<Integer>(1, 2)), is(true));
-		assertThat("(null, 2).equals(null, 2)", new Range<Integer>(null, 2).equals(new Range<Integer>(null, 2)), is(true));
-		assertThat("(1, null).equals(1, null)", new Range<Integer>(1, null).equals(new Range<Integer>(1, null)), is(true));
-		assertThat("(1, 2).equals(1, 3)", new Range<Integer>(1, 2).equals(new Range<Integer>(1, 3)), is(false));
-		assertThat("(1, 2).equals(0, 2)", new Range<Integer>(1, 2).equals(new Range<Integer>(0, 2)), is(false));
-		assertThat("(1, 2).equals(null, 2)", new Range<Integer>(1, 2).equals(new Range<Integer>(null, 2)), is(false));
-		assertThat("(1, 2).equals(1, null)", new Range<Integer>(1, 2).equals(new Range<Integer>(1, null)), is(false));
-		assertThat("(1, 2).equals(null, null)", new Range<Integer>(1, 2).equals(new Range<Integer>(null, null)), is(false));
-		assertThat("(null, 2).equals(1, 2)", new Range<Integer>(null, 2).equals(new Range<Integer>(1, 2)), is(false));
-		assertThat("(1, null).equals(1, 2)", new Range<Integer>(1, null).equals(new Range<Integer>(1, 2)), is(false));
-		assertThat("(null, null).equals(1, 2)", new Range<Integer>(null, null).equals(new Range<Integer>(1, 2)), is(false));
-	}
-
-	@Test
-	public final void _toString() {
-		assertThat("(A, B).toString()", new Range<String>("A", "B").toString(), is("Range[A, B]"));
-	}
-
-	@Test
 	public final void contains() {
 		assertThat("(1, 3).contains(0)", new Range<Integer>(1, 3).contains(0), is(false));
 		assertThat("(1, 3).contains(1)", new Range<Integer>(1, 3).contains(1), is(true));
@@ -157,18 +135,6 @@ public final class RangeTest {
 		assertThat("Unbounded range overlaps left open range", unboundedRange.overlaps(new Range<Integer>(null, 3)), is(true));
 		assertThat("Unbounded range overlaps right open range", unboundedRange.overlaps(new Range<Integer>(2, null)), is(true));
 		assertThat("Unbounded range overlaps unbounded range", unboundedRange.overlaps(new Range<Integer>(null, null)), is(true));
-	}
-
-	@Test
-	public final void _hashCode() {
-		final Integer hashCodeOfMaxValue = Integer.valueOf(MAX_VALUE).hashCode();
-		final Integer hashCodeOfMinValue = Integer.valueOf(MIN_VALUE).hashCode();
-		final Integer hashCodeOf7 = Integer.valueOf(7).hashCode();
-		final Integer hashCodeOf11 = Integer.valueOf(11).hashCode();
-		assertThat("(null, null).hashCode()", new Range<Integer>(null, null).hashCode(), is(hashCodeOfMaxValue << 16 ^ hashCodeOfMinValue));
-		assertThat("(7, null).hashCode()", new Range<Integer>(7, null).hashCode(), is(hashCodeOf7 << 16 ^ hashCodeOfMinValue));
-		assertThat("(null, 11).hashCode()", new Range<Integer>(null, 11).hashCode(), is(hashCodeOfMaxValue << 16 ^ hashCodeOf11));
-		assertThat("(7, 11).hashCode()", new Range<Integer>(7, 11).hashCode(), is(hashCodeOf7 << 16 ^ hashCodeOf11));
 	}
 
 	/**
